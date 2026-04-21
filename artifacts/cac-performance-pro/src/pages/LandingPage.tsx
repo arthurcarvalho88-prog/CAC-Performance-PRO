@@ -65,13 +65,13 @@ export default function LandingPage() {
       <header className="fixed top-0 w-full z-50 bg-[#0C1A33]/95 backdrop-blur-xl">
         {/* Top accent line */}
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-80" />
-        <div className="container mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
+        <div className="container mx-auto px-6 h-[88px] flex items-center justify-between gap-6">
           {/* Logo */}
           <a href="#" className="flex items-center flex-shrink-0">
             <img
               src={logoImage}
               alt="CAC Performance PRO"
-              className="h-[52px] w-[52px] object-contain"
+              className="h-[80px] w-[80px] object-contain"
             />
           </a>
 
@@ -743,7 +743,7 @@ export default function LandingPage() {
       <footer className="border-t border-border bg-card relative z-10">
         <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center">
-            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-12 w-auto object-contain opacity-80" />
+            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-16 w-auto object-contain opacity-80" />
           </div>
           <p className="text-sm text-muted-foreground">
             © 2026 CAC Performance PRO. Todos os direitos reservados.
