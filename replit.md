@@ -16,6 +16,18 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### CAC Performance PRO (artifacts/cac-performance-pro)
+- **Type**: React + Vite (presentation-first landing page)
+- **Preview path**: `/`
+- **Port**: 25219
+- **Description**: Landing page profissional para o app CAC Performance PRO — sistema de gestão de acervo de armas, habitualidades e documentos para atiradores esportivos brasileiros CAC.
+- **Color palette**: Navy dark #0D1B2E, Orange #F97316, Silver/white text
+- **Tech**: React, Tailwind CSS, Framer Motion, Rajdhani/Inter fonts
+- **Key file**: `artifacts/cac-performance-pro/src/pages/LandingPage.tsx`
+- **Brand assets**: Imported from `attached_assets/` via `@assets` alias
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages

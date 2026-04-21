@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "CAC Performance PRO"
+version = "1.0.0"
+id = "artifacts/cac-performance-pro"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25219
+
+[services.development]
+run = "pnpm --filter @workspace/cac-performance-pro run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cac-performance-pro", "run", "build" ]
+publicDir = "artifacts/cac-performance-pro/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25219"
+BASE_PATH = "/"
