@@ -1,7 +1,9 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User, Mail, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const APP_STORE_URL = "https://apps.apple.com";
 const GOOGLE_PLAY_URL = "https://play.google.com";
@@ -16,7 +18,39 @@ import documentosScreen from "@assets/IMG_7704_1776770991969.PNG";
 import perfilScreen from "@assets/IMG_7706_1776770991969.PNG";
 import pdfReport from "@assets/IMG_7707_1776770991969.jpg";
 
+type FormState = "idle" | "loading" | "success" | "error";
+
 export default function LandingPage() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setFormState("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const data = await res.json();
+        setErrorMessage(data.error || "Ocorreu um erro. Tente novamente.");
+        setFormState("error");
+      }
+    } catch {
+      setErrorMessage("Não foi possível conectar ao servidor. Tente novamente.");
+      setFormState("error");
+    }
+  };
+
   return (
     <div className="min-h-[100dvh] w-full bg-background text-foreground overflow-x-hidden selection:bg-primary/30">
       
@@ -48,6 +82,7 @@ export default function LandingPage() {
               { label: "Módulos", href: "#modules" },
               { label: "Relatórios", href: "#reports" },
               { label: "Download", href: "#download" },
+              { label: "Lista de Espera", href: "#waitlist" },
             ].map((item) => (
               <a
                 key={item.href}
@@ -528,6 +563,163 @@ export default function LandingPage() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Waitlist / Contact Section */}
+        <section id="waitlist" className="py-24 bg-card/50 border-y border-border/50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 pointer-events-none" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-2xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="text-center mb-12"
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border w-fit mb-6">
+                  <Mail className="w-4 h-4 text-primary" />
+                  <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Acesso Antecipado</span>
+                </div>
+                <h2 className="text-3xl lg:text-5xl font-display font-bold mb-4">
+                  Entre na Lista de Espera
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Seja um dos primeiros a ter acesso ao CAC Performance PRO. Cadastre seu e-mail e receba novidades em primeira mão.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: 0.1 }}
+                className="bg-background border border-border rounded-xl p-8 shadow-xl"
+              >
+                <AnimatePresence mode="wait">
+                  {formState === "success" ? (
+                    <motion.div
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="flex flex-col items-center text-center py-8 gap-4"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
+                        <CheckCircle2 className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-display font-bold text-white">Cadastro Confirmado!</h3>
+                      <p className="text-muted-foreground max-w-sm">
+                        Você está na lista. Avisaremos assim que o app estiver disponível para download. Fique atento ao seu e-mail!
+                      </p>
+                      <Button
+                        variant="outline"
+                        className="mt-4 border-border hover:bg-secondary font-bold uppercase tracking-wider rounded-none"
+                        onClick={() => setFormState("idle")}
+                      >
+                        Cadastrar outro e-mail
+                      </Button>
+                    </motion.div>
+                  ) : (
+                    <motion.form
+                      key="form"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onSubmit={handleSubmit}
+                      className="space-y-5"
+                    >
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        <div className="space-y-2">
+                          <label htmlFor="name" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                            Nome *
+                          </label>
+                          <Input
+                            id="name"
+                            type="text"
+                            placeholder="Seu nome completo"
+                            value={formData.name}
+                            onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+                            required
+                            minLength={2}
+                            maxLength={100}
+                            disabled={formState === "loading"}
+                            className="bg-secondary border-border rounded-none h-12 placeholder:text-muted-foreground/50 focus-visible:ring-primary"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label htmlFor="email" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                            E-mail *
+                          </label>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="seu@email.com"
+                            value={formData.email}
+                            onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+                            required
+                            disabled={formState === "loading"}
+                            className="bg-secondary border-border rounded-none h-12 placeholder:text-muted-foreground/50 focus-visible:ring-primary"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label htmlFor="message" className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                          Mensagem <span className="text-muted-foreground/60 normal-case tracking-normal">(opcional)</span>
+                        </label>
+                        <Textarea
+                          id="message"
+                          placeholder="Alguma sugestão ou funcionalidade que gostaria de ver no app?"
+                          value={formData.message}
+                          onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+                          maxLength={500}
+                          disabled={formState === "loading"}
+                          rows={3}
+                          className="bg-secondary border-border rounded-none placeholder:text-muted-foreground/50 focus-visible:ring-primary resize-none"
+                        />
+                      </div>
+
+                      <AnimatePresence>
+                        {formState === "error" && (
+                          <motion.p
+                            initial={{ opacity: 0, y: -4 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -4 }}
+                            className="text-sm text-red-400 bg-red-400/10 border border-red-400/30 rounded px-4 py-3"
+                          >
+                            {errorMessage}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+
+                      <Button
+                        type="submit"
+                        size="lg"
+                        disabled={formState === "loading"}
+                        className="w-full bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-widest rounded-none h-14 text-base shadow-[0_0_20px_rgba(249,115,22,0.2)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all disabled:opacity-60"
+                      >
+                        {formState === "loading" ? (
+                          <span className="flex items-center gap-2">
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            Enviando...
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            <Send className="w-5 h-5" />
+                            Garantir Meu Lugar
+                          </span>
+                        )}
+                      </Button>
+
+                      <p className="text-xs text-center text-muted-foreground">
+                        Não enviamos spam. Seu e-mail é usado apenas para notificações do app.
+                      </p>
+                    </motion.form>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </div>
           </div>
         </section>
 
