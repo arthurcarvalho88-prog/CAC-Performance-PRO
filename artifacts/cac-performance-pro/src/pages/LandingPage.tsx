@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 const APP_STORE_URL = "https://apps.apple.com";
 const GOOGLE_PLAY_URL = "https://play.google.com";
 
-import logoImage from "@assets/IMG_7602_1776772363684.PNG";
+import logoImage from "@assets/logo_transparent.png";
 import homeScreen from "@assets/IMG_7699_1776770991969.PNG";
 import acervoScreen from "@assets/IMG_7700_1776770991969.PNG";
 import gunDetailScreen from "@assets/IMG_7701_1776770991969.PNG";
