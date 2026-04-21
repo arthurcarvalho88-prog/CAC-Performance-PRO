@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User, Mail, Send, Loader2 } from "lucide-react";
+import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User, Mail, Send, Loader2, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,6 +19,41 @@ import perfilScreen from "@assets/IMG_7706_1776770991969.PNG";
 import pdfReport from "@assets/IMG_7707_1776770991969.jpg";
 
 type FormState = "idle" | "loading" | "success" | "error";
+
+const TESTIMONIALS = [
+  {
+    initials: "RM",
+    name: "Ricardo Mendes",
+    level: "Nível: Avançado",
+    levelColor: "text-orange-400",
+    stars: 5,
+    text: "Acabei com as pastas de papel de uma vez. Tudo que o Exército pede está em dois toques. Na última renovação do CR apresentei o relatório gerado pelo app e o fiscal ficou impressionado.",
+  },
+  {
+    initials: "PS",
+    name: "Patricia Souza",
+    level: "Nível: Intermediário",
+    levelColor: "text-blue-400",
+    stars: 5,
+    text: "Como mulher no esporte, me sinto muito mais segura sabendo que meus documentos nunca vão vencer sem aviso. O monitor de validade é cirúrgico. Recomendo para todo CAC.",
+  },
+  {
+    initials: "FM",
+    name: "Felipe Magalhães",
+    level: "Nível: Elite",
+    levelColor: "text-yellow-400",
+    stars: 5,
+    text: "Tenho 14 armas no acervo. Antes era um pesadelo controlar os CRAFs de cada uma. Agora é automático. O app vincula o documento à arma e me avisa quando está para vencer.",
+  },
+  {
+    initials: "JO",
+    name: "Jorge Oliveira",
+    level: "Nível: Iniciante",
+    levelColor: "text-green-400",
+    stars: 5,
+    text: "Comecei há seis meses no esporte e o app me ajudou a entender tudo que preciso manter em dia. Interface clara, sem complicação. Perfeito para quem está começando.",
+  },
+];
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -89,6 +124,7 @@ export default function LandingPage() {
               { label: "Módulos", href: "#modules" },
               { label: "Relatórios", href: "#reports" },
               { label: "Download", href: "#download" },
+              { label: "Depoimentos", href: "#testimonials" },
               { label: "Lista de Espera", href: "#waitlist" },
             ].map((item) => (
               <a
@@ -570,6 +606,56 @@ export default function LandingPage() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent pointer-events-none" />
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="text-center max-w-2xl mx-auto mb-16"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border w-fit mb-6">
+                <Star className="w-4 h-4 text-primary fill-primary" />
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Prova Social</span>
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">O que dizem os atiradores</h2>
+              <p className="text-muted-foreground text-lg">Atiradores de todos os níveis já estão transformando sua gestão com o CAC Performance PRO.</p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {TESTIMONIALS.map((t, i) => (
+                <motion.div
+                  key={t.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative bg-card border border-border rounded-xl p-6 flex flex-col gap-5 hover:border-primary/40 transition-colors duration-300"
+                >
+                  <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: t.stars }).map((_, s) => (
+                      <Star key={s} className="w-4 h-4 text-primary fill-primary" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">"{t.text}"</p>
+                  <div className="flex items-center gap-3 pt-4 border-t border-border/50">
+                    <div className="w-10 h-10 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
+                      <span className="text-xs font-display font-bold text-primary">{t.initials}</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-white">{t.name}</span>
+                      <span className={`text-xs font-semibold uppercase tracking-wider ${t.levelColor}`}>{t.level}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
