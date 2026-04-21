@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const APP_STORE_URL = "https://apps.apple.com";
+const GOOGLE_PLAY_URL = "https://play.google.com";
+
 import logoImage from "@assets/ddd08efe-f319-4193-824f-ac1073adad1e_1776771986755.JPG";
 import homeScreen from "@assets/IMG_7699_1776770991969.PNG";
 import acervoScreen from "@assets/IMG_7700_1776770991969.PNG";
@@ -34,6 +37,7 @@ export default function LandingPage() {
             <a href="#features" className="hover:text-primary transition-colors">Funcionalidades</a>
             <a href="#modules" className="hover:text-primary transition-colors">Módulos</a>
             <a href="#reports" className="hover:text-primary transition-colors">Relatórios</a>
+            <a href="#download" className="hover:text-primary transition-colors">Download</a>
           </nav>
           <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider rounded-none relative overflow-hidden group">
             <span className="relative z-10 flex items-center gap-2">
@@ -426,6 +430,80 @@ export default function LandingPage() {
                 />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Download Section */}
+        <section id="download" className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border w-fit mb-6">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Disponível Em Breve</span>
+              </div>
+
+              <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
+                Baixe o App Agora
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-xl mb-12">
+                Disponível para iPhone e Android. Leve seu centro de comando no bolso aonde for.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-5">
+                {/* App Store Badge */}
+                <a
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group transition-all duration-300 hover:opacity-80 hover:scale-105 hover:drop-shadow-[0_0_16px_rgba(249,115,22,0.35)]"
+                  aria-label="Baixar na App Store"
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}badge-app-store.svg`}
+                    alt="Baixar na App Store"
+                    className="h-16 w-auto"
+                  />
+                </a>
+
+                {/* Google Play Badge */}
+                <a
+                  href={GOOGLE_PLAY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group transition-all duration-300 hover:opacity-80 hover:scale-105 hover:drop-shadow-[0_0_16px_rgba(249,115,22,0.35)]"
+                  aria-label="Disponível no Google Play"
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}badge-google-play.svg`}
+                    alt="Disponível no Google Play"
+                    className="h-16 w-auto"
+                  />
+                </a>
+              </div>
+
+              <div className="flex items-center gap-10 mt-14 pt-10 border-t border-border/50">
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-display font-bold text-white">iOS 15+</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Requisito</span>
+                </div>
+                <div className="w-px h-10 bg-border" />
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-display font-bold text-white">Android 9+</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Requisito</span>
+                </div>
+                <div className="w-px h-10 bg-border" />
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-display font-bold text-white">Gratuito</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Download</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
