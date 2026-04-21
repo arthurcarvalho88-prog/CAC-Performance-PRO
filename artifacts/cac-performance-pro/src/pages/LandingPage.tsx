@@ -96,7 +96,7 @@ export default function LandingPage() {
           src={logoImage}
           alt=""
           aria-hidden="true"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] object-contain opacity-[0.04] select-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[960px] h-[960px] object-contain opacity-[0.05] select-none"
         />
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen opacity-50" />
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] mix-blend-screen opacity-30" />
@@ -107,13 +107,13 @@ export default function LandingPage() {
       <header className="fixed top-0 w-full z-50 bg-[#0C1A33]/95 backdrop-blur-xl">
         {/* Top accent line */}
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-80" />
-        <div className="container mx-auto px-6 h-[88px] flex items-center justify-between gap-6">
+        <div className="container mx-auto px-6 h-[104px] flex items-center justify-between gap-6">
           {/* Logo */}
           <a href="#" className="flex items-center flex-shrink-0">
             <img
               src={logoImage}
               alt="CAC Performance PRO"
-              className="h-[80px] w-[80px] object-contain"
+              className="h-[96px] w-[96px] object-contain"
             />
           </a>
 
