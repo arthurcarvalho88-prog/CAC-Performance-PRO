@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import logoImage from "@assets/ddd08efe-f319-4193-824f-ac1073adad1e_1776770974096.JPG";
+import logoImage from "@assets/ddd08efe-f319-4193-824f-ac1073adad1e_1776771986755.JPG";
 import homeScreen from "@assets/IMG_7699_1776770991969.PNG";
 import acervoScreen from "@assets/IMG_7700_1776770991969.PNG";
 import gunDetailScreen from "@assets/IMG_7701_1776770991969.PNG";
@@ -27,11 +27,8 @@ export default function LandingPage() {
       {/* Navbar */}
       <header className="fixed top-0 w-full z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={logoImage} alt="CAC Performance PRO Logo" className="w-12 h-12 object-cover rounded-md border border-primary/20" />
-            <span className="font-display font-bold text-xl tracking-wider text-white hidden sm:block">
-              CAC PERFORMANCE <span className="text-primary">PRO</span>
-            </span>
+          <div className="flex items-center">
+            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-14 w-auto object-contain" />
           </div>
           <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-muted-foreground">
             <a href="#features" className="hover:text-primary transition-colors">Funcionalidades</a>
@@ -451,11 +448,8 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-border bg-card relative z-10">
         <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <img src={logoImage} alt="CAC Performance PRO Logo" className="w-10 h-10 object-cover rounded border border-primary/20 grayscale opacity-80" />
-            <span className="font-display font-bold text-lg tracking-wider text-muted-foreground">
-              CAC PERFORMANCE <span className="text-primary/80">PRO</span>
-            </span>
+          <div className="flex items-center">
+            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-12 w-auto object-contain opacity-80" />
           </div>
           <p className="text-sm text-muted-foreground">
             © 2026 CAC Performance PRO. Todos os direitos reservados.
