@@ -76,45 +76,45 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  /* Background (navy dark): #0D1B2E */
-  --background: 214 56% 11%;
+  /* Background (navy dark): #0C1A33 — matches logo background */
+  --background: 218 62% 12%;
   /* Text primary: #FFFFFF */
   --foreground: 0 0% 100%;
   
   /* Border using silver accents with opacity or dark blue */
-  --border: 212 56% 25%;
+  --border: 218 50% 24%;
 
-  /* Card/surface background: #0F2136 */
-  --card: 212 56% 14%;
+  /* Card/surface background: slightly lighter navy */
+  --card: 218 55% 15%;
   --card-foreground: 0 0% 100%;
-  --card-border: 212 56% 20%;
+  --card-border: 218 48% 21%;
 
-  --sidebar: 212 56% 14%;
+  --sidebar: 218 55% 15%;
   --sidebar-foreground: 0 0% 100%;
-  --sidebar-border: 212 56% 20%;
+  --sidebar-border: 218 48% 21%;
   --sidebar-primary: 25 95% 53%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 212 45% 19%;
+  --sidebar-accent: 218 45% 20%;
   --sidebar-accent-foreground: 0 0% 100%;
   --sidebar-ring: 25 95% 53%;
 
-  --popover: 212 56% 14%;
+  --popover: 218 55% 15%;
   --popover-foreground: 0 0% 100%;
-  --popover-border: 212 56% 20%;
+  --popover-border: 218 48% 21%;
 
   /* Primary accent/CTA: #F97316 (orange) */
   --primary: 25 95% 53%;
   --primary-foreground: 0 0% 100%;
 
-  /* Surface secondary: #1A2E45 */
-  --secondary: 212 45% 19%;
+  /* Surface secondary */
+  --secondary: 218 45% 20%;
   --secondary-foreground: 0 0% 100%;
 
   /* Text secondary: #94A3B8 */
-  --muted: 212 45% 19%;
+  --muted: 218 45% 20%;
   --muted-foreground: 215 16% 65%;
 
-  --accent: 212 45% 19%;
+  --accent: 218 45% 20%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const APP_STORE_URL = "https://apps.apple.com";
 const GOOGLE_PLAY_URL = "https://play.google.com";
 
-import logoImage from "@assets/ddd08efe-f319-4193-824f-ac1073adad1e_1776771986755.JPG";
+import logoImage from "@assets/IMG_7602_1776772363684.PNG";
 import homeScreen from "@assets/IMG_7699_1776770991969.PNG";
 import acervoScreen from "@assets/IMG_7700_1776770991969.PNG";
 import gunDetailScreen from "@assets/IMG_7701_1776770991969.PNG";
@@ -28,24 +28,48 @@ export default function LandingPage() {
       </div>
 
       {/* Navbar */}
-      <header className="fixed top-0 w-full z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center">
-            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-14 w-auto object-contain" />
-          </div>
-          <nav className="hidden md:flex items-center gap-8 font-medium text-sm text-muted-foreground">
-            <a href="#features" className="hover:text-primary transition-colors">Funcionalidades</a>
-            <a href="#modules" className="hover:text-primary transition-colors">Módulos</a>
-            <a href="#reports" className="hover:text-primary transition-colors">Relatórios</a>
-            <a href="#download" className="hover:text-primary transition-colors">Download</a>
+      <header className="fixed top-0 w-full z-50 bg-[#0C1A33]/95 backdrop-blur-xl">
+        {/* Top accent line */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-80" />
+        <div className="container mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
+          {/* Logo */}
+          <a href="#" className="flex items-center flex-shrink-0">
+            <img
+              src={logoImage}
+              alt="CAC Performance PRO"
+              className="h-[52px] w-[52px] object-contain"
+            />
+          </a>
+
+          {/* Nav links */}
+          <nav className="hidden md:flex items-center gap-7">
+            {[
+              { label: "Funcionalidades", href: "#features" },
+              { label: "Módulos", href: "#modules" },
+              { label: "Relatórios", href: "#reports" },
+              { label: "Download", href: "#download" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="relative text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
           </nav>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider rounded-none relative overflow-hidden group">
+
+          {/* CTA */}
+          <Button className="bg-primary text-white hover:bg-primary/90 font-bold uppercase tracking-widest text-xs px-5 py-2 rounded-sm relative overflow-hidden group flex-shrink-0 shadow-lg shadow-primary/20">
             <span className="relative z-10 flex items-center gap-2">
-              Conheça o App <ChevronRight className="w-4 h-4" />
+              Conheça o App <ChevronRight className="w-3.5 h-3.5" />
             </span>
-            <div className="absolute inset-0 h-full w-0 bg-white/20 group-hover:w-full transition-all duration-300 ease-out"></div>
+            <div className="absolute inset-0 h-full w-0 bg-white/15 group-hover:w-full transition-all duration-300 ease-out" />
           </Button>
         </div>
+        {/* Bottom separator */}
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/8 to-transparent" />
       </header>
 
       <main className="relative z-10 pt-32 pb-20">

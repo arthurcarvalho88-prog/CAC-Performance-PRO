@@ -23,7 +23,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Preview path**: `/`
 - **Port**: 25219
 - **Description**: Landing page profissional para o app CAC Performance PRO — sistema de gestão de acervo de armas, habitualidades e documentos para atiradores esportivos brasileiros CAC.
-- **Color palette**: Navy dark #0D1B2E, Orange #F97316, Silver/white text
+- **Color palette**: Navy dark #0C1A33 (matches logo bg), Orange #F97316, Silver/white text
 - **Tech**: React, Tailwind CSS, Framer Motion, Rajdhani/Inter fonts
 - **Key file**: `artifacts/cac-performance-pro/src/pages/LandingPage.tsx`
 - **Brand assets**: Imported from `attached_assets/` via `@assets` alias
