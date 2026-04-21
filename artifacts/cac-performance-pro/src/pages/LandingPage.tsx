@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2 } from "lucide-react";
+import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import logoImage from "@assets/ddd08efe-f319-4193-824f-ac1073adad1e_1776770974096.JPG";
@@ -136,15 +136,15 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 3 Core Modules */}
+        {/* 4 Core Modules */}
         <section id="modules" className="py-24 bg-card/50 border-y border-border/50 relative">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">Arsenal Digital Integrado</h2>
-              <p className="text-muted-foreground text-lg">Os três pilares da conformidade do atirador esportivo brasileiro, projetados com precisão militar e foco total na usabilidade.</p>
+              <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">Quatro Pilares da Gestão CAC</h2>
+              <p className="text-muted-foreground text-lg">Tudo que o atirador esportivo brasileiro precisa para manter sua regularidade, organizado em quatro módulos integrados e projetados com precisão.</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Acervo */}
               <motion.div 
                 whileHover={{ y: -5 }}
@@ -156,12 +156,12 @@ export default function LandingPage() {
                 <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary/20 transition-colors">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-3">Acervo</h3>
-                <p className="text-muted-foreground mb-6">Controle total sobre seu armamento. Dados técnicos, números de série, registro SIGMA/SINARM e calibres perfeitamente organizados.</p>
-                <ul className="space-y-2 mb-8">
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Fichas técnicas detalhadas</li>
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Controle de munição</li>
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Alertas de validade de registro</li>
+                <h3 className="text-xl font-display font-bold mb-3">Acervo</h3>
+                <p className="text-muted-foreground mb-6 text-sm">Controle total sobre seu armamento. Dados técnicos, registros e calibres perfeitamente organizados.</p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Fichas técnicas detalhadas</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> N° de série e SIGMA</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Alertas de validade</li>
                 </ul>
               </motion.div>
 
@@ -176,12 +176,12 @@ export default function LandingPage() {
                 <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary/20 transition-colors">
                   <Target className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-3">Habitualidades</h3>
-                <p className="text-muted-foreground mb-6">Registro ágil de idas ao clube de tiro. Comprove sua frequência exigida por lei com meia dúzia de toques na tela.</p>
-                <ul className="space-y-2 mb-8">
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Registro por arma/calibre</li>
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Histórico de disparos</li>
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Progresso para nível de CAC</li>
+                <h3 className="text-xl font-display font-bold mb-3">Habitualidades</h3>
+                <p className="text-muted-foreground mb-6 text-sm">Registro ágil de idas ao clube de tiro. Comprove sua frequência exigida por lei com poucos toques.</p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Registro por arma/calibre</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Progresso por nível</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Exportação em PDF</li>
                 </ul>
               </motion.div>
 
@@ -196,12 +196,32 @@ export default function LandingPage() {
                 <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary/20 transition-colors">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-3">Documentos</h3>
-                <p className="text-muted-foreground mb-6">Seu cofre digital para CR, CRAF, Guias de Tráfego e filiações. Nunca mais seja pego de surpresa em uma fiscalização.</p>
-                <ul className="space-y-2 mb-8">
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Digitalização instantânea</li>
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Organização por validade</li>
-                  <li className="flex items-center gap-2 text-sm text-silver-300"><CheckCircle2 className="w-4 h-4 text-primary" /> Acesso offline aos PDFs</li>
+                <h3 className="text-xl font-display font-bold mb-3">Documentos</h3>
+                <p className="text-muted-foreground mb-6 text-sm">Cofre digital para CR, CRAF, Guias de Tráfego e filiações. Nunca seja pego de surpresa.</p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Digitalização instantânea</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Monitor de validade</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Acesso offline</li>
+                </ul>
+              </motion.div>
+
+              {/* Perfil */}
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="group bg-background border border-border p-8 rounded-xl relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <User className="w-32 h-32" />
+                </div>
+                <div className="w-12 h-12 bg-primary/10 border border-primary/30 flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary/20 transition-colors">
+                  <User className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-display font-bold mb-3">Perfil</h3>
+                <p className="text-muted-foreground mb-6 text-sm">Sua identidade completa de atirador. Dados pessoais, registro CAC e configurações de segurança em um só lugar.</p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Dados do registro CAC</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Biometria facial</li>
+                  <li className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> Nível e categoria</li>
                 </ul>
               </motion.div>
             </div>
