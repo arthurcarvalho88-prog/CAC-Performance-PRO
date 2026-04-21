@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const APP_STORE_URL = "https://apps.apple.com";
-const GOOGLE_PLAY_URL = "https://play.google.com";
+const APP_STORE_URL = import.meta.env.VITE_APP_STORE_URL || "https://apps.apple.com";
+const GOOGLE_PLAY_URL = import.meta.env.VITE_GOOGLE_PLAY_URL || "https://play.google.com";
+const APP_LIVE = import.meta.env.VITE_APP_LIVE === "true";
 
 import logoImage from "@assets/logo_transparent.png";
 import homeScreen from "@assets/IMG_7699_1776770991969.PNG";
@@ -546,8 +547,10 @@ export default function LandingPage() {
               className="flex flex-col items-center text-center"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border w-fit mb-6">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Disponível Em Breve</span>
+                <div className={`w-2 h-2 rounded-full animate-pulse ${APP_LIVE ? "bg-green-400" : "bg-primary"}`} />
+                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  {APP_LIVE ? "Disponível Agora" : "Disponível Em Breve"}
+                </span>
               </div>
 
               <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
