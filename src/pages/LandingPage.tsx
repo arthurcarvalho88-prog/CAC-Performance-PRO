@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Shield, Target, FileText, FileBarChart, CheckCircle2, User, Mail, Send, Loader2, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -841,9 +842,14 @@ export default function LandingPage() {
           <div className="flex items-center">
             <img src={logoImage} alt="CAC Performance PRO Logo" className="h-16 w-auto object-contain opacity-80" />
           </div>
-          <p className="text-sm text-muted-foreground">
-            © 2026 CAC Performance PRO. Todos os direitos reservados.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <Link href="/privacidade" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Politica de Privacidade
+            </Link>
+            <p className="text-sm text-muted-foreground">
+              © 2026 CAC Performance PRO. Todos os direitos reservados.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
