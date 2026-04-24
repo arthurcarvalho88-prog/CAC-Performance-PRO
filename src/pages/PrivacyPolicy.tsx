@@ -83,12 +83,13 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen" style={{ backgroundColor: "#0C1A33", color: "#FFFFFF" }}>
       {/* Header */}
       <header className="border-b border-white/10">
-        <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <Link href="/">
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#F97316] to-transparent opacity-80" />
+        <div className="container mx-auto px-6 h-[124px] flex items-center justify-between gap-6">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <img
               src={logoImage}
               alt="CAC Performance PRO Logo"
-              className="h-12 w-auto object-contain cursor-pointer"
+              className="h-[116px] w-[116px] object-contain cursor-pointer"
             />
           </Link>
           <Link
