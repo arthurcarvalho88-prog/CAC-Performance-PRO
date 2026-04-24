@@ -163,10 +163,6 @@ export default function LandingPage() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex flex-col gap-6"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border w-fit">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-widest text-silver-300">O Padrão Ouro para CACs</span>
-              </div>
               <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight">
                 Gestão Completa para <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Atiradores Esportivos</span>
@@ -840,7 +836,7 @@ export default function LandingPage() {
       <footer className="border-t border-border bg-card relative z-10">
         <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center">
-            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-16 w-auto object-contain opacity-80" />
+            <img src={logoImage} alt="CAC Performance PRO Logo" className="h-[116px] w-[116px] object-contain" />
           </div>
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <Link href="/privacidade" className="text-sm text-muted-foreground hover:text-primary transition-colors">
